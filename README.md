@@ -45,10 +45,12 @@
 
 cd Gossip
 
-2. Instale as dependências
+### 2. Instale as dependências
+
 pip install -r requirements.txt
 
-3. Configure seu .env
+### 3. Configure seu .env
+
 Crie um arquivo .env na raiz com o seguinte conteúdo:
 
        TOKEN=seu_token_do_discord
@@ -57,7 +59,7 @@ Crie um arquivo .env na raiz com o seguinte conteúdo:
 
 ⚠️ Importante: nunca suba seu .env para o GitHub!
 
-4. Inicie o bot
+### 4. Inicie o bot
 python main.py
 
 ## 💬 Comandos Slash Disponíveis
