@@ -1,17 +1,16 @@
 import discord
 from discord import app_commands
+from discord.ext import commands
 from config import TOKEN, DEFAULT_CHANNEL
 from utils.logger import logger
 
 intents = discord.Intents.default()
-bot = discord.Client(intents=intents)
-tree = app_commands.CommandTree(bot)
-
+bot = commands.Bot(command_prefix="!", intents=intents)
 default_channel_id = DEFAULT_CHANNEL
 
 @bot.event
 async def on_ready():
-    await tree.sync()
+    await bot.tree.sync()
     logger.info(f"Bot online como {bot.user}")
     print(f"✅ {bot.user} conectado e comandos sincronizados.")
 
