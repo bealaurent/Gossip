@@ -27,7 +27,7 @@
 
 ## 🗂️ Estrutura do Projeto
 
-anonbot/
+GossipBot/
 ├── main.py # Código principal com os comandos slash
 ├── config.py # Carregamento das variáveis de ambiente
 ├── .env # Configurações sensíveis (não subir para o Git)
