@@ -51,7 +51,9 @@ pip install -r requirements.txt
 Crie um arquivo .env na raiz com o seguinte conteúdo:
 
     TOKEN=seu_token_do_discord
+    
     DEFAULT_CHANNEL=123456789012345678  #ID do canal para onde as mensagens anônimas serão enviadas
+    
     LOG_LEVEL=INFO
 
 ⚠️ Importante: nunca suba seu .env para o GitHub!
@@ -70,6 +72,7 @@ Define o canal padrão para onde as mensagens anônimas serão enviadas.
 
 ## 🧾 Exemplo de Log
 2025-07-02 18:42:01 INFO     Mensagem anônima enviada para o canal #fofocas
+
 2025-07-02 18:44:15 INFO     Canal padrão atualizado para #confissoes (123456789012345678)
 
 Nenhuma mensagem nem autor é logado. Apenas ações administrativas e de saúde do bot.
