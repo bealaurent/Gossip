@@ -41,7 +41,7 @@
 ## 🚀 Como Rodar
 
 ### 1. Clone o repositório
-        git clone https://github.com/seu-usuario/Gossip.git
+    git clone https://github.com/seu-usuario/Gossip.git
 
 cd Gossip
 
@@ -51,9 +51,9 @@ pip install -r requirements.txt
 3. Configure seu .env
 Crie um arquivo .env na raiz com o seguinte conteúdo:
 
-        TOKEN=seu_token_do_discord
-        DEFAULT_CHANNEL=123456789012345678  #ID do canal para onde as mensagens anônimas serão enviadas
-        LOG_LEVEL=INFO
+       TOKEN=seu_token_do_discord
+       DEFAULT_CHANNEL=123456789012345678  #ID do canal para onde as mensagens anônimas serão enviadas
+       LOG_LEVEL=INFO
 
 ⚠️ Importante: nunca suba seu .env para o GitHub!
 
@@ -61,11 +61,11 @@ Crie um arquivo .env na raiz com o seguinte conteúdo:
 python main.py
 
 ## 💬 Comandos Slash Disponíveis
-        /enviar [mensagem]
+    /enviar [mensagem]
 
 Envia uma mensagem anônima para o canal padrão. O remetente receberá uma confirmação privada.
 
-        /config [canal] (somente admins)
+    /config [canal] (somente admins)
 
 Define o canal padrão para onde as mensagens anônimas serão enviadas.
 
@@ -74,7 +74,7 @@ Define o canal padrão para onde as mensagens anônimas serão enviadas.
 
 2025-07-02 18:44:15 INFO Canal padrão atualizado para #confissoes (123456789012345678)
 
-        ⚠️ Nenhuma mensagem nem autor é logado. Apenas ações administrativas e de saúde do bot.
+    ⚠️ Nenhuma mensagem nem autor é logado. Apenas ações administrativas e de saúde do bot.
 
 ## 🛡️ Segurança e Privacidade
 
