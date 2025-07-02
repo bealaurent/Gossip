@@ -42,8 +42,8 @@ GossipBot/
 ## 🚀 Como Rodar
 
 ### 1. Clone o repositório
-git clone https://github.com/seu-usuario/gossipbot.git
-cd gossipbot
+git clone https://github.com/seu-usuario/gossip.git
+cd gossip
 
 2. Instale as dependências
 pip install -r requirements.txt
@@ -52,7 +52,7 @@ pip install -r requirements.txt
 Crie um arquivo .env na raiz com o seguinte conteúdo:
 
 TOKEN=seu_token_do_discord
-DEFAULT_CHANNEL=123456789012345678  # ID do canal para onde as mensagens anônimas serão enviadas
+DEFAULT_CHANNEL=123456789012345678  #ID do canal para onde as mensagens anônimas serão enviadas
 LOG_LEVEL=INFO
 
     ⚠️ Importante: nunca suba seu .env para o GitHub!
@@ -64,6 +64,7 @@ python main.py
 /enviar [mensagem]
 
 Envia uma mensagem anônima para o canal padrão. O remetente receberá uma confirmação privada.
+
 /config [canal] (somente admins)
 
 Define o canal padrão para onde as mensagens anônimas serão enviadas.

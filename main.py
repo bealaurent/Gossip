@@ -15,7 +15,7 @@ async def on_ready():
     logger.info(f"Bot online como {bot.user}")
     print(f"✅ {bot.user} conectado e comandos sincronizados.")
 
-@tree.command(name="enviar", description="Envie aqui sua fofoca.")
+@bot.tree.command(name="enviar", description="Envie aqui sua fofoca.")
 @app_commands.describe(mensagem="Escreva aqui sua mensagem")
 async def anonimo_enviar(interaction: discord.Interaction, mensagem: str):
     global default_channel_id
@@ -40,7 +40,7 @@ async def anonimo_enviar(interaction: discord.Interaction, mensagem: str):
         logger.error(f"Erro ao enviar mensagem anônima: {e}")
         await interaction.response.send_message("❌ Ocorreu um erro ao enviar sua mensagem.", ephemeral=True)
 
-@tree.command(name="config_canal", description="Configure o canal padrão para mensagens anônimas (somente admins).")
+@bot.tree.command(name="config_canal", description="Configure o canal padrão para mensagens anônimas (somente admins).")
 @app_commands.describe(canal="Canal onde as mensagens anônimas devem ser enviadas")
 @app_commands.checks.has_permissions(administrator=True)
 async def anonimo_config(interaction: discord.Interaction, canal: discord.TextChannel):
