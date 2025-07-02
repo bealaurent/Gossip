@@ -27,7 +27,7 @@ async def anonimo_enviar(interaction: discord.Interaction, mensagem: str):
             return
 
         embed = discord.Embed(
-            title="📩 Mensagem Anônima",
+            title="📩 Fofoca",
             description=mensagem,
             color=discord.Color.blurple()
         )
@@ -43,18 +43,18 @@ async def anonimo_enviar(interaction: discord.Interaction, mensagem: str):
 @bot.tree.command(name="config", description="Configure o canal padrão para mensagens anônimas (somente admins).")
 @app_commands.describe(canal="Canal onde as mensagens anônimas devem ser enviadas")
 @app_commands.checks.has_permissions(administrator=True)
-async def anonimo_config(interaction: discord.Interaction, canal: discord.TextChannel):
+async def config(interaction: discord.Interaction, canal: discord.TextChannel):
     global default_channel_id
     default_channel_id = canal.id
     logger.info(f"Canal padrão atualizado para {canal.name} ({canal.id}) por {interaction.user}")
     await interaction.response.send_message(f"✅ Canal configurado para {canal.mention}", ephemeral=True)
 
-@anonimo_config.error
+@config.error
 async def config_error(interaction: discord.Interaction, error):
     if isinstance(error, app_commands.MissingPermissions):
         await interaction.response.send_message("❌ Você não tem permissão para isso.", ephemeral=True)
     else:
-        logger.error(f"Erro inesperado no comando /anonimo_config: {error}")
+        logger.error(f"Erro inesperado no comando /config: {error}")
         await interaction.response.send_message("❌ Ocorreu um erro inesperado.", ephemeral=True)
 
 bot.run(TOKEN)
