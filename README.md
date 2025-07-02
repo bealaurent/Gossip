@@ -41,9 +41,9 @@
 ## 🚀 Como Rodar
 
 ### 1. Clone o repositório
-git clone https://github.com/seu-usuario/gossip.git
+git clone https://github.com/seu-usuario/Gossip.git
 
-cd gossip
+cd Gossip
 
 2. Instale as dependências
 pip install -r requirements.txt
