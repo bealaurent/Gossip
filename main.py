@@ -65,17 +65,17 @@ async def ajuda(interaction: discord.Interaction):
             "Este bot permite que você envie **mensagens anônimas** para um canal específico do servidor.\n\n"
             "📝 **Para enviar uma mensagem anônima:**\n"
             "Use o comando `/enviar` seguido da sua mensagem.\n"
-            "Exemplo: `/enviar mensagem: O fulano tá pegando o ciclano!`\n\n"
+            "Exemplo: `/enviar O fulano tá pegando o ciclano!`\n\n"
             "📨 A mensagem será enviada **anonimamente** no canal configurado, sem mostrar seu nome ou avatar.\n\n"
             "⚙️ **Para admins:**\n"
             "Use `/config` para definir o canal onde as mensagens anônimas devem ser postadas.\n"
-            "Exemplo: `/config canal: #fofocas`\n\n"
+            "Exemplo: `/config #fofocas`\n\n"
             "🔒 **Privacidade:**\n"
             "Nenhum log de autor é salvo. As mensagens são totalmente anônimas."
         ),
         color=discord.Color.green()
     )
-    await interaction.response.send_message(embed=embed, ephemeral=True)
+    await interaction.response.send_message(embed=embed)
 
 
 bot.run(TOKEN)
