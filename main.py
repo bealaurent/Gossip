@@ -5,6 +5,7 @@ from config import TOKEN, DEFAULT_CHANNEL
 from utils.logger import logger
 
 intents = discord.Intents.default()
+intents.message_content = True
 bot = commands.Bot(command_prefix="!", intents=intents)
 default_channel_id = DEFAULT_CHANNEL
 
@@ -39,7 +40,7 @@ async def anonimo_enviar(interaction: discord.Interaction, mensagem: str):
         logger.error(f"Erro ao enviar mensagem anônima: {e}")
         await interaction.response.send_message("❌ Ocorreu um erro ao enviar sua mensagem.", ephemeral=True)
 
-@bot.tree.command(name="config_canal", description="Configure o canal padrão para mensagens anônimas (somente admins).")
+@bot.tree.command(name="config", description="Configure o canal padrão para mensagens anônimas (somente admins).")
 @app_commands.describe(canal="Canal onde as mensagens anônimas devem ser enviadas")
 @app_commands.checks.has_permissions(administrator=True)
 async def anonimo_config(interaction: discord.Interaction, canal: discord.TextChannel):
