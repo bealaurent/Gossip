@@ -27,15 +27,14 @@
 
 ## 🗂️ Estrutura do Projeto
 
-GossipBot/
-├── main.py # Código principal com os comandos slash
-├── config.py # Carregamento das variáveis de ambiente
-├── .env # Configurações sensíveis (não subir para o Git)
-├── utils/
-│ └── logger.py # Sistema de logging
-├── gossip.log # Arquivo de log gerado automaticamente
-├── requirements.txt # Dependências do projeto
-
+    GossipBot/
+    ├── main.py # Código principal com os comandos slash
+    ├── config.py # Carregamento das variáveis de ambiente
+    ├── .env # Configurações sensíveis (não subir para o Git)
+    ├── utils/
+    │ └── logger.py # Sistema de logging
+    ├── gossip.log # Arquivo de log gerado automaticamente
+    ├── requirements.txt # Dependências do projeto
 
 ---
 
@@ -51,11 +50,11 @@ pip install -r requirements.txt
 3. Configure seu .env
 Crie um arquivo .env na raiz com o seguinte conteúdo:
 
-TOKEN=seu_token_do_discord
-DEFAULT_CHANNEL=123456789012345678  #ID do canal para onde as mensagens anônimas serão enviadas
-LOG_LEVEL=INFO
+    TOKEN=seu_token_do_discord
+    DEFAULT_CHANNEL=123456789012345678  #ID do canal para onde as mensagens anônimas serão enviadas
+    LOG_LEVEL=INFO
 
-    ⚠️ Importante: nunca suba seu .env para o GitHub!
+⚠️ Importante: nunca suba seu .env para o GitHub!
 
 4. Inicie o bot
 python main.py
