@@ -27,7 +27,7 @@ async def anonimo_enviar(interaction: discord.Interaction, mensagem: str):
             return
 
         embed = discord.Embed(
-            title="📩 Fofoca",
+            title="📩 Correio Eletrônico",
             description=mensagem,
             color=discord.Color.blurple()
         )
