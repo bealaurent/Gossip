@@ -7,7 +7,7 @@ from utils.logger import logger
 intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix="!", intents=intents)
-default_channel_id = DEFAULT_CHANNEL
+default_channels = {}
 
 @bot.event
 async def on_ready():
@@ -18,12 +18,17 @@ async def on_ready():
 @bot.tree.command(name="enviar", description="Envie aqui sua fofoca.")
 @app_commands.describe(mensagem="Escreva aqui sua mensagem")
 async def anonimo_enviar(interaction: discord.Interaction, mensagem: str):
-    global default_channel_id
-
     try:
-        channel = bot.get_channel(default_channel_id)
+        guild_id = interaction.guild.id
+        channel_id = default_channels.get(guild_id)
+
+        if not channel_id:
+            await interaction.response.send_message("❌ Nenhum canal foi configurado para este servidor. Use `/config`.", ephemeral=True)
+            return
+
+        channel = bot.get_channel(channel_id)
         if not channel:
-            await interaction.response.send_message("❌ Canal padrão não configurado corretamente.", ephemeral=True)
+            await interaction.response.send_message("❌ Canal configurado não encontrado. Verifique se ele ainda existe.", ephemeral=True)
             return
 
         embed = discord.Embed(
@@ -33,21 +38,22 @@ async def anonimo_enviar(interaction: discord.Interaction, mensagem: str):
         )
 
         await channel.send(embed=embed)
-        logger.info(f"Mensagem anônima enviada para o canal {channel.name}")
+        logger.info(f"Mensagem anônima enviada no servidor {interaction.guild.name}, canal {channel.name}")
         await interaction.response.send_message("✅ Sua mensagem foi enviada anonimamente!", ephemeral=True)
 
     except Exception as e:
         logger.error(f"Erro ao enviar mensagem anônima: {e}")
         await interaction.response.send_message("❌ Ocorreu um erro ao enviar sua mensagem.", ephemeral=True)
 
+
 @bot.tree.command(name="config", description="Configure o canal padrão para mensagens anônimas (somente admins).")
 @app_commands.describe(canal="Canal onde as mensagens anônimas devem ser enviadas")
 @app_commands.checks.has_permissions(administrator=True)
 async def config(interaction: discord.Interaction, canal: discord.TextChannel):
-    global default_channel_id
-    default_channel_id = canal.id
-    logger.info(f"Canal padrão atualizado para {canal.name} ({canal.id}) por {interaction.user}")
+    default_channels[interaction.guild.id] = canal.id
+    logger.info(f"Canal padrão do servidor {interaction.guild.name} configurado para {canal.name} ({canal.id}) por {interaction.user}")
     await interaction.response.send_message(f"✅ Canal configurado para {canal.mention}", ephemeral=True)
+
 
 @config.error
 async def config_error(interaction: discord.Interaction, error):
